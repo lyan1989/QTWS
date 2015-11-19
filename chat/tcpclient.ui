@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="tcpClientStatusLabel">
      <property name="text">
       <string>TextLabel</string>
      </property>
@@ -90,7 +90,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string>CANCEL</string>
        </property>
       </widget>
      </item>
@@ -109,7 +109,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string>CLOSE</string>
        </property>
       </widget>
      </item>

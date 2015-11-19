@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include<QUdpSocket>
+#include "tcpclient.h"
+#include "tcpserver.h"
 namespace Ui {
 class Widget;
 }
@@ -20,22 +22,33 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
     void doParticapantON(QString userName, QString localHost, QString ipAddr);
-    void sendMessage(MessageType type);
+    void sendMessage(MessageType type,QString serverAddress="");
     void doparticapantOFF(QString userName,QString localHost,QString time);
 
     QString getIp();
     QString getUserName();
     QString getMessage();
 
+
+    void hasPendingFile(QString userName,QString serverAddress,QString clientAddress,QString fileName);
+
 private:
     Ui::Widget *ui;
     QUdpSocket *udpSocket;
     qint16 port;
+    TcpServer *tcpServer;
+    QString fileName;
 
 private slots:
     void processPendingDatagrams();
 
     void on_pushButton_clicked();
+    void on_sendFileBtn_clicked();
+    void broadcastFileName(QString);
+
+
+
+    void on_toolButton_6_clicked();
 };
 
 #endif // WIDGET_H

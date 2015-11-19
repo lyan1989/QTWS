@@ -4,8 +4,10 @@
 #include <QMessageBox>
 #include <QDataStream>
 #include <QDateTime>
+#include <QPixmap>
 #include <QProcess>
 #include <QNetworkInterface>
+#include <QFileDialog>
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -22,14 +24,11 @@ Widget::Widget(QWidget *parent) :
     connect(udpSocket,SIGNAL(readyRead()),this,SLOT(processPendingDatagrams()));
     sendMessage(ParticapantOn); //打开软件就向外发送上线消息
 
-    /*
-    //test environment
-    QStringList env = QProcess::systemEnvironment();
-    foreach(QString str,env){
-        qDebug() << str;
+    tcpServer = new TcpServer(this);
+    connect(tcpServer,SIGNAL(sendFileName(QString)),this,SLOT(broadcastFileName(QString)));
 
-    }
-    */
+
+
 }
 
 Widget::~Widget()
@@ -37,7 +36,7 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::sendMessage(MessageType type)
+void Widget::sendMessage(MessageType type,QString serverAddress)
 {
     QByteArray data; //字节数组
     QDataStream out(&data,QIODevice::WriteOnly);
@@ -61,8 +60,15 @@ void Widget::sendMessage(MessageType type)
     case ParticapantOff:
         break;
     case FileName:
+    {
+        int row = ui->tableWidget->currentRow();//select the person which will receive the file as the client.
+        QString clientAddress = ui->tableWidget->item(row,2)->text(); //get the address of the client.
+        out << address << clientAddress << fileName;  //udp packate will contain hostaddress,clientaddress,filename
         break;
+    }
     case Refuse:
+        out << serverAddress;
+        qDebug() << "refuse the  request " ;
         break;
     }
     udpSocket->writeDatagram(data,QHostAddress::Broadcast,port);
@@ -107,7 +113,13 @@ void Widget::processPendingDatagrams()
             doparticapantOFF(userName,localHostName,time);
             break;
         case FileName:
+        {
+            in >> userName >> localHostName  >> ipAddress;
+            QString clientAddress,fileName;
+            in >> clientAddress >> fileName;
+            hasPendingFile(userName,ipAddress,clientAddress,fileName);
             break;
+        }
         case Refuse:
             break;
 
@@ -189,9 +201,63 @@ QString Widget::getMessage()
     return msg;
 }
 
+void Widget::hasPendingFile(QString userName, QString serverAddress, QString clientAddress, QString fileName)
+{
+    QString ipAddress = getIp();
+    if(ipAddress == clientAddress)
+    {
+        int btn = QMessageBox::information(this,tr("Receive FIles"),tr("Does accept files from %1(%2): %3?")
+                                           .arg(userName).arg(serverAddress).arg(fileName),QMessageBox::Yes,QMessageBox::No);
+        if(btn == QMessageBox::Yes)
+        {
+            QString name = QFileDialog::getSaveFileName(0,tr("save file"),fileName);
+            if(!name.isEmpty())
+            {
+                TcpClient *client = new TcpClient(this);
+                client->setFileName(name);
+                client->setHostAddress(QHostAddress(serverAddress));
+                client->show();
+            }
+        }
+        else
+        {
+            sendMessage(Refuse,serverAddress);
+        }
+    }
+}
+
 
 
 void Widget::on_pushButton_clicked()
 {
     sendMessage(Message);
+}
+
+void Widget::on_sendFileBtn_clicked()
+{
+    if(ui->tableWidget->selectedItems().isEmpty())
+    {
+        QMessageBox::warning(this,tr("Warning"),tr("Please select the person you need send to."),QMessageBox::Ok);
+        return;
+    }
+   // tcpServer->show();
+    tcpServer->initServer();
+    tcpServer->show();
+
+}
+
+void Widget::broadcastFileName(QString name)
+{
+    fileName = name;
+    sendMessage(FileName);
+    qDebug() << "broadcast the filename.... wait receiving..";
+}
+
+void Widget::on_toolButton_6_clicked()
+{
+    QFile *localFile = new QFile("/home/lyan/lyan.txt");
+    if(localFile)
+        QMessageBox::information(this,tr("information"),tr("open success"),QMessageBox::Ok);
+    else
+        QMessageBox::information(this,tr("information"),tr("open failed"),QMessageBox::Ok);
 }

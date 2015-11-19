@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>image/textunder.png</file>
+        <file>image/textitalic.png</file>
+        <file>image/textcolor.png</file>
+        <file>image/textbold.png</file>
+        <file>image/Floppy.png</file>
+        <file>image/fileopen.png</file>
+        <file>image/Bin (empty).png</file>
+    </qresource>
+</RCC>

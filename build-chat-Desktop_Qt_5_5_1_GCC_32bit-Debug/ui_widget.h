@@ -43,7 +43,7 @@ public:
     QToolButton *toolButton_2;
     QToolButton *toolButton_3;
     QToolButton *toolButton_4;
-    QToolButton *toolButton_5;
+    QToolButton *sendFileBtn;
     QToolButton *toolButton_6;
     QToolButton *toolButton_7;
     QTextEdit *messageTextEdit;
@@ -113,7 +113,7 @@ public:
         toolButton->setSizePolicy(sizePolicy);
         toolButton->setMinimumSize(QSize(0, 25));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/textbold.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/new/prefix1/image/textbold.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton->setIcon(icon);
         toolButton->setIconSize(QSize(24, 24));
 
@@ -125,7 +125,7 @@ public:
         toolButton_2->setSizePolicy(sizePolicy);
         toolButton_2->setMinimumSize(QSize(0, 25));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/textunder.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/new/prefix1/image/textunder.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_2->setIcon(icon1);
         toolButton_2->setIconSize(QSize(24, 24));
 
@@ -137,7 +137,7 @@ public:
         toolButton_3->setSizePolicy(sizePolicy);
         toolButton_3->setMinimumSize(QSize(0, 25));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/textitalic.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral(":/new/prefix1/image/textitalic.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_3->setIcon(icon2);
         toolButton_3->setIconSize(QSize(24, 24));
 
@@ -149,23 +149,23 @@ public:
         toolButton_4->setSizePolicy(sizePolicy);
         toolButton_4->setMinimumSize(QSize(0, 25));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/textcolor.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QStringLiteral(":/new/prefix1/image/textcolor.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_4->setIcon(icon3);
         toolButton_4->setIconSize(QSize(24, 24));
 
         horizontalLayout->addWidget(toolButton_4);
 
-        toolButton_5 = new QToolButton(Widget);
-        toolButton_5->setObjectName(QStringLiteral("toolButton_5"));
-        sizePolicy.setHeightForWidth(toolButton_5->sizePolicy().hasHeightForWidth());
-        toolButton_5->setSizePolicy(sizePolicy);
-        toolButton_5->setMinimumSize(QSize(0, 25));
+        sendFileBtn = new QToolButton(Widget);
+        sendFileBtn->setObjectName(QStringLiteral("sendFileBtn"));
+        sizePolicy.setHeightForWidth(sendFileBtn->sizePolicy().hasHeightForWidth());
+        sendFileBtn->setSizePolicy(sizePolicy);
+        sendFileBtn->setMinimumSize(QSize(0, 25));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/fileopen.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_5->setIcon(icon4);
-        toolButton_5->setIconSize(QSize(24, 24));
+        icon4.addFile(QStringLiteral(":/new/prefix1/image/fileopen.png"), QSize(), QIcon::Normal, QIcon::Off);
+        sendFileBtn->setIcon(icon4);
+        sendFileBtn->setIconSize(QSize(24, 24));
 
-        horizontalLayout->addWidget(toolButton_5);
+        horizontalLayout->addWidget(sendFileBtn);
 
         toolButton_6 = new QToolButton(Widget);
         toolButton_6->setObjectName(QStringLiteral("toolButton_6"));
@@ -173,7 +173,7 @@ public:
         toolButton_6->setSizePolicy(sizePolicy);
         toolButton_6->setMinimumSize(QSize(0, 25));
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/Floppy.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QStringLiteral(":/new/prefix1/image/Floppy.png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_6->setIcon(icon5);
         toolButton_6->setIconSize(QSize(24, 24));
 
@@ -185,7 +185,7 @@ public:
         toolButton_7->setSizePolicy(sizePolicy);
         toolButton_7->setMinimumSize(QSize(0, 25));
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/Bin (empty).png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QStringLiteral(":/new/prefix1/image/Bin (empty).png"), QSize(), QIcon::Normal, QIcon::Off);
         toolButton_7->setIcon(icon6);
         toolButton_7->setIconSize(QSize(24, 24));
 
@@ -237,7 +237,7 @@ public:
         if (tableWidget->columnCount() < 3)
             tableWidget->setColumnCount(3);
         QIcon icon7;
-        icon7.addFile(QString::fromUtf8("../\345\256\236\344\276\213\346\272\220\347\240\201/chat\346\272\220\347\240\201/chat/image/User.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon7.addFile(QStringLiteral("ico/myicon.ico"), QSize(), QIcon::Normal, QIcon::Off);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         __qtablewidgetitem->setIcon(icon7);
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
@@ -253,7 +253,7 @@ public:
         tableWidget->setSizePolicy(sizePolicy2);
         tableWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         tableWidget->setAlternatingRowColors(true);
-        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(true);
         tableWidget->horizontalHeader()->setDefaultSectionSize(90);
         tableWidget->horizontalHeader()->setHighlightSections(true);
@@ -335,7 +335,7 @@ public:
         toolButton_2->setText(QApplication::translate("Widget", "...", 0));
         toolButton_3->setText(QApplication::translate("Widget", "...", 0));
         toolButton_4->setText(QApplication::translate("Widget", "...", 0));
-        toolButton_5->setText(QApplication::translate("Widget", "...", 0));
+        sendFileBtn->setText(QApplication::translate("Widget", "...", 0));
         toolButton_6->setText(QApplication::translate("Widget", "...", 0));
         toolButton_7->setText(QApplication::translate("Widget", "...", 0));
         label_3->setText(QApplication::translate("Widget", " www.xinole.com", 0));

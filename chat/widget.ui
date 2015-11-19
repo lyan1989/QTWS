@@ -197,8 +197,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/textbold.png</normaloff>../实例源码/chat源码/chat/image/textbold.png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/textbold.png</normaloff>:/new/prefix1/image/textbold.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -226,8 +226,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/textunder.png</normaloff>../实例源码/chat源码/chat/image/textunder.png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/textunder.png</normaloff>:/new/prefix1/image/textunder.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -255,8 +255,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/textitalic.png</normaloff>../实例源码/chat源码/chat/image/textitalic.png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/textitalic.png</normaloff>:/new/prefix1/image/textitalic.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -284,8 +284,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/textcolor.png</normaloff>../实例源码/chat源码/chat/image/textcolor.png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/textcolor.png</normaloff>:/new/prefix1/image/textcolor.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -296,7 +296,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QToolButton" name="toolButton_5">
+          <widget class="QToolButton" name="sendFileBtn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
              <horstretch>0</horstretch>
@@ -313,8 +313,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/fileopen.png</normaloff>../实例源码/chat源码/chat/image/fileopen.png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/fileopen.png</normaloff>:/new/prefix1/image/fileopen.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -342,8 +342,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/Floppy.png</normaloff>../实例源码/chat源码/chat/image/Floppy.png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/Floppy.png</normaloff>:/new/prefix1/image/Floppy.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -371,8 +371,8 @@
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset>
-             <normaloff>../实例源码/chat源码/chat/image/Bin (empty).png</normaloff>../实例源码/chat源码/chat/image/Bin (empty).png</iconset>
+            <iconset resource="image.qrc">
+             <normaloff>:/new/prefix1/image/Bin (empty).png</normaloff>:/new/prefix1/image/Bin (empty).png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -471,7 +471,7 @@
           <bool>true</bool>
          </property>
          <attribute name="horizontalHeaderVisible">
-          <bool>true</bool>
+          <bool>false</bool>
          </attribute>
          <attribute name="horizontalHeaderCascadingSectionResizes">
           <bool>true</bool>
@@ -509,7 +509,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>../实例源码/chat源码/chat/image/User.png</normaloff>../实例源码/chat源码/chat/image/User.png</iconset>
+            <normaloff>ico/myicon.ico</normaloff>ico/myicon.ico</iconset>
           </property>
          </column>
          <column>
@@ -577,6 +577,8 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections/>
 </ui>

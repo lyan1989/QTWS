@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QTcpSocket>
+#include <QHostAddress>
 #include <QFile>
 #include <QTime>
 namespace Ui {
@@ -34,8 +35,16 @@ private:
 
     QTcpSocket *tcpClient;
     quint16 tcpPort;
-    QFile localFile;
+    QFile *localFile;
     QTime time;
+    QHostAddress hostAddress;
+    QByteArray inBlock;
+
+    qint64 TotalBytes;
+    qint64 bytesReceived;
+    qint64 bytesToReceive;
+    qint64 fileNameSize;
+    QString fileName;
 };
 
 #endif // TCPCLIENT_H

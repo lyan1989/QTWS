@@ -14,14 +14,20 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    tcpserver.cpp
+    tcpserver.cpp \
+    tcpclient.cpp
 
 HEADERS  += widget.h \
-    tcpserver.h
+    tcpserver.h \
+    tcpclient.h
 
 FORMS    += widget.ui \
-    tcpserver.ui
+    tcpserver.ui \
+    tcpclient.ui
 
 DISTFILES += \
     TcpserverForm.ui.qml \
     Tcpserver.qml
+
+RESOURCES += \
+    image.qrc

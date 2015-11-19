@@ -28,15 +28,15 @@ class Ui_TcpServer
 {
 public:
     QVBoxLayout *verticalLayout;
-    QLabel *label;
+    QLabel *serverStatusLabel;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
     QProgressBar *progressBar;
     QLabel *label_2;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
+    QPushButton *openFileButton;
+    QPushButton *sendFileButton;
+    QPushButton *closeButton;
 
     void setupUi(QDialog *TcpServer)
     {
@@ -45,17 +45,18 @@ public:
         TcpServer->resize(400, 300);
         verticalLayout = new QVBoxLayout(TcpServer);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label = new QLabel(TcpServer);
-        label->setObjectName(QStringLiteral("label"));
+        serverStatusLabel = new QLabel(TcpServer);
+        serverStatusLabel->setObjectName(QStringLiteral("serverStatusLabel"));
         QFont font;
-        font.setPointSize(20);
+        font.setPointSize(17);
         font.setBold(true);
         font.setWeight(75);
-        label->setFont(font);
-        label->setLayoutDirection(Qt::LeftToRight);
-        label->setAlignment(Qt::AlignCenter);
+        serverStatusLabel->setFont(font);
+        serverStatusLabel->setLayoutDirection(Qt::LeftToRight);
+        serverStatusLabel->setScaledContents(false);
+        serverStatusLabel->setAlignment(Qt::AlignCenter);
 
-        verticalLayout->addWidget(label);
+        verticalLayout->addWidget(serverStatusLabel);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -98,20 +99,20 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        pushButton = new QPushButton(TcpServer);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        openFileButton = new QPushButton(TcpServer);
+        openFileButton->setObjectName(QStringLiteral("openFileButton"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(openFileButton);
 
-        pushButton_2 = new QPushButton(TcpServer);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        sendFileButton = new QPushButton(TcpServer);
+        sendFileButton->setObjectName(QStringLiteral("sendFileButton"));
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(sendFileButton);
 
-        pushButton_3 = new QPushButton(TcpServer);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        closeButton = new QPushButton(TcpServer);
+        closeButton->setObjectName(QStringLiteral("closeButton"));
 
-        horizontalLayout->addWidget(pushButton_3);
+        horizontalLayout->addWidget(closeButton);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -125,11 +126,11 @@ public:
     void retranslateUi(QDialog *TcpServer)
     {
         TcpServer->setWindowTitle(QApplication::translate("TcpServer", "Dialog", 0));
-        label->setText(QApplication::translate("TcpServer", "TextLabel", 0));
+        serverStatusLabel->setText(QApplication::translate("TcpServer", "TextLabel", 0));
         label_2->setText(QApplication::translate("TcpServer", "0%", 0));
-        pushButton->setText(QApplication::translate("TcpServer", "PushButton", 0));
-        pushButton_2->setText(QApplication::translate("TcpServer", "PushButton", 0));
-        pushButton_3->setText(QApplication::translate("TcpServer", "PushButton", 0));
+        openFileButton->setText(QApplication::translate("TcpServer", "OPEN", 0));
+        sendFileButton->setText(QApplication::translate("TcpServer", "SEND", 0));
+        closeButton->setText(QApplication::translate("TcpServer", "CLOSE", 0));
     } // retranslateUi
 
 };
